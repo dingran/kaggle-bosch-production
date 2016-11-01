@@ -1,0 +1,776 @@
+booster[0]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L2_S26_F3073<0.2705] yes=3,no=4,missing=3
+		3:[L3_S29_F3351<-0.1155] yes=7,no=8,missing=7
+			7:[L3_S36_D3919<683.945] yes=13,no=14,missing=13
+				13:[end_date_id_diff<74963.5] yes=23,no=24,missing=23
+					23:[L0_S23_F623<0.0265] yes=35,no=36,missing=35
+						35:leaf=-0.0155513
+						36:leaf=0.00207426
+					24:leaf=0.00335272
+				14:[L0_S0_F20<0.1815] yes=25,no=26,missing=25
+					25:[L1_S24_F1685<-0.0005] yes=37,no=38,missing=37
+						37:leaf=-0.0113702
+						38:leaf=0.01355
+					26:[L3_S29_end_date_id_diff_reverse<-3133] yes=39,no=40,missing=39
+						39:leaf=-0.00565161
+						40:leaf=0.0447762
+			8:[L3_S30_F3519<0.204] yes=15,no=16,missing=15
+				15:[L2_S27_F3129<0.0895] yes=27,no=28,missing=27
+					27:[L1_S24_F1609<0.0275] yes=41,no=42,missing=41
+						41:leaf=-0.0173959
+						42:leaf=-0.00183171
+					28:leaf=-0.000197488
+				16:[L3_S30_F3534<-0.111] yes=29,no=30,missing=29
+					29:leaf=0.0130538
+					30:[L3_S30_F3794<0.028] yes=43,no=44,missing=43
+						43:leaf=-0.0185409
+						44:leaf=-0.00361641
+		4:leaf=0.0167184
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[active_ts_cnt<12.5] yes=9,no=10,missing=9
+			9:[L3_S33_D3856<748.88] yes=17,no=18,missing=17
+				17:leaf=0.53836
+				18:leaf=0.204813
+			10:[L3_S30_start_date_id_diff<92.5] yes=19,no=20,missing=19
+				19:[L3_S38_start_date_id_diff_magic<1.5] yes=31,no=32,missing=31
+					31:[L0_S1_time_span_rank<13.5] yes=45,no=46,missing=45
+						45:leaf=0.043617
+						46:leaf=-0.000944607
+					32:[L3_S30_F3544<-0.0025] yes=47,no=48,missing=47
+						47:leaf=0.183155
+						48:leaf=0.0461017
+				20:[L3_S33_D3856<369.375] yes=33,no=34,missing=33
+					33:leaf=0.344723
+					34:[L3_S37_end_date_rank<11.5] yes=49,no=50,missing=49
+						49:leaf=0.0761437
+						50:leaf=0.177242
+		6:[L3_S29_F3315<-0.2355] yes=11,no=12,missing=11
+			11:leaf=0.00411036
+			12:[L3_S29_F3452<-0.206] yes=21,no=22,missing=21
+				21:leaf=-0.00156194
+				22:leaf=-0.0190487
+booster[1]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<6] yes=3,no=4,missing=3
+		3:leaf=0.0282742
+		4:[L3_S29_F3351<-0.127] yes=7,no=8,missing=7
+			7:[start_date_id_diff_reverse<-1982.5] yes=13,no=14,missing=13
+				13:[L3_S29_D3474<671.145] yes=25,no=26,missing=25
+					25:[end_date<202.515] yes=39,no=40,missing=39
+						39:leaf=-0.00198481
+						40:leaf=-0.0184953
+					26:[L3_S30_F3709<-0.0115] yes=41,no=42,missing=41
+						41:leaf=0.0245341
+						42:leaf=-0.0106274
+				14:[L3_S36_D3919<887.565] yes=27,no=28,missing=27
+					27:[end_date_id_diff_reverse<-16121] yes=43,no=44,missing=43
+						43:leaf=0.0230595
+						44:leaf=-0.0100931
+					28:leaf=0.0274837
+			8:[L1_S24_F1778<0.021] yes=15,no=16,missing=15
+				15:[L0_S5_start_date_id_diff<123838] yes=29,no=30,missing=29
+					29:[L0_S10_start_date_id_diff_reverse<82158] yes=45,no=46,missing=45
+						45:leaf=-0.0171998
+						46:leaf=-0.00611934
+					30:leaf=-0.000292198
+				16:leaf=-6.08033e-05
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S38_start_date_id_diff_reverse<-1.5] yes=9,no=10,missing=9
+			9:[L3_S33_D3858<234.33] yes=17,no=18,missing=17
+				17:leaf=0.561184
+				18:[L3_S29_F3407<0.06] yes=31,no=32,missing=31
+					31:leaf=0.273182
+					32:[L3_S30_F3809<0.0195] yes=47,no=48,missing=47
+						47:leaf=0.110644
+						48:leaf=0.0198717
+			10:[L3_S29_D3474<321.955] yes=19,no=20,missing=19
+				19:[L0_S2_start_date_rank<8.5] yes=33,no=34,missing=33
+					33:[time_span<1.615] yes=49,no=50,missing=49
+						49:leaf=0.0994038
+						50:leaf=0.024271
+					34:leaf=-0.00311927
+				20:[L3_S29_F3407<0.06] yes=35,no=36,missing=35
+					35:leaf=0.233058
+					36:[L3_S30_D3496<617.32] yes=51,no=52,missing=51
+						51:leaf=0.0428111
+						52:leaf=0.130812
+		6:[L3_S30_F3519<0.125] yes=11,no=12,missing=11
+			11:[L3_S30_F3749<0.1995] yes=21,no=22,missing=21
+				21:[L0_S13_start_date_id_diff_reverse<-594] yes=37,no=38,missing=37
+					37:leaf=-0.00509054
+					38:leaf=-0.0194817
+				22:leaf=-0.00441164
+			12:[L3_S30_F3809<0.0035] yes=23,no=24,missing=23
+				23:leaf=-0.0151887
+				24:leaf=0.0148078
+booster[2]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0265578
+		4:[L3_S29_F3458<-0.127] yes=7,no=8,missing=7
+			7:[start_date_id_diff_reverse<-1800.5] yes=13,no=14,missing=13
+				13:[L1_S24_F1632<-0.0015] yes=25,no=26,missing=25
+					25:[L3_S33_start_date_id_diff_reverse<-53119.5] yes=39,no=40,missing=39
+						39:leaf=-0.00502397
+						40:leaf=-0.0156084
+					26:[L3_S30_F3584<0.0015] yes=41,no=42,missing=41
+						41:leaf=-0.0126733
+						42:leaf=0.0259796
+				14:[L0_S7_D137<877.325] yes=27,no=28,missing=27
+					27:[end_date_id_diff_reverse<-29469.5] yes=43,no=44,missing=43
+						43:leaf=0.0198767
+						44:leaf=-0.0104616
+					28:leaf=0.0337252
+			8:[L2_S26_F3106<0.0335] yes=15,no=16,missing=15
+				15:[L1_S24_F1662<0.0385] yes=29,no=30,missing=29
+					29:[L3_S30_F3509<0.0035] yes=45,no=46,missing=45
+						45:leaf=-0.0174621
+						46:leaf=-0.00800176
+					30:leaf=0.00481268
+				16:[L3_S29_start_date_id_diff_reverse<-1979.5] yes=31,no=32,missing=31
+					31:[L2_S26_F3062<-0.0205] yes=47,no=48,missing=47
+						47:leaf=-0.00017085
+						48:leaf=-0.0175297
+					32:leaf=0.0187517
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[cat_null_col_count<2076.5] yes=9,no=10,missing=9
+			9:[L0_S13_time_span_rank<18.5] yes=17,no=18,missing=17
+				17:[L1_S24_F1844<-0.2285] yes=33,no=34,missing=33
+					33:leaf=0.408373
+					34:leaf=0.108635
+				18:leaf=0.127019
+			10:[L3_S30_start_date_id_diff<368.5] yes=19,no=20,missing=19
+				19:[time_per_TS_cat<3.895] yes=35,no=36,missing=35
+					35:leaf=0.00700537
+					36:[L3_S29_D3474<621.44] yes=49,no=50,missing=49
+						49:leaf=0.0519038
+						50:leaf=0.15301
+				20:[L3_S38_end_date_id_diff_magic<1.5] yes=37,no=38,missing=37
+					37:[L3_S30_F3759<0.0555] yes=51,no=52,missing=51
+						51:leaf=0.135086
+						52:leaf=0.0358143
+					38:[L0_S1_start_date<557.17] yes=53,no=54,missing=53
+						53:leaf=0.325642
+						54:leaf=0.0637363
+		6:[L3_S30_F3519<0.125] yes=11,no=12,missing=11
+			11:[L3_S36_F3920<0.0405] yes=21,no=22,missing=21
+				21:leaf=-0.0188943
+				22:leaf=-0.00734365
+			12:[L3_S29_start_date_id_diff_reverse<30080.5] yes=23,no=24,missing=23
+				23:leaf=0.00990473
+				24:leaf=-0.0153901
+booster[3]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L1_S24_start_date_id_diff<87318.5] yes=3,no=4,missing=3
+		3:[L3_S38_end_date_id_diff_reverse<-35211.5] yes=7,no=8,missing=7
+			7:leaf=0.00652307
+			8:[L3_S32_time_span_rank<4.5] yes=13,no=14,missing=13
+				13:leaf=0.00986361
+				14:[L1_S24_F1793<0.0025] yes=19,no=20,missing=19
+					19:[L0_S4_start_date_id_diff<84099] yes=27,no=28,missing=27
+						27:leaf=-0.0159128
+						28:leaf=-0.00278052
+					20:leaf=0.00469284
+		4:leaf=0.0148902
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<31.5] yes=9,no=10,missing=9
+			9:leaf=0.411729
+			10:[L3_S29_F3342<-0.018] yes=15,no=16,missing=15
+				15:[L0_S0_F10<0.093] yes=21,no=22,missing=21
+					21:[L0_S1_start_date_id_diff<1.5] yes=29,no=30,missing=29
+						29:leaf=0.0322688
+						30:leaf=0.108048
+					22:[L3_S29_F3354<-0.0655] yes=31,no=32,missing=31
+						31:leaf=-0.0115817
+						32:leaf=0.0321935
+				16:[end_date_id_diff_magic<3.5] yes=23,no=24,missing=23
+					23:[L0_S7_F142<-0.0085] yes=33,no=34,missing=33
+						33:leaf=0.128522
+						34:leaf=0.0179659
+					24:leaf=0.221355
+		6:[L3_S29_F3315<-0.2355] yes=11,no=12,missing=11
+			11:leaf=0.00525908
+			12:[L0_S5_F116<0.069] yes=17,no=18,missing=17
+				17:[L3_S29_F3433<-0.0465] yes=25,no=26,missing=25
+					25:[L3_S30_start_date_id_diff_reverse<120084] yes=35,no=36,missing=35
+						35:leaf=0.0049103
+						36:leaf=-0.0170738
+					26:leaf=-0.0194026
+				18:leaf=-0.000118958
+booster[4]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0164526
+		4:[start_date_id_diff<160708] yes=7,no=8,missing=7
+			7:[L1_S24_F1516<0.1235] yes=11,no=12,missing=11
+				11:[L0_S16_end_date_id_diff_reverse<184924] yes=17,no=18,missing=17
+					17:[L0_S8_start_date_id_diff_reverse<-92956] yes=23,no=24,missing=23
+						23:leaf=0.000482653
+						24:leaf=-0.0155595
+					18:leaf=0.00990416
+				12:leaf=0.00863036
+			8:leaf=0.00871979
+	2:[L3_S32_time_span_rank<9.5] yes=5,no=6,missing=5
+		5:leaf=0.379344
+		6:[L3_S30_start_date_id_diff_reverse<54] yes=9,no=10,missing=9
+			9:[L1_S24_F1516<0.0045] yes=13,no=14,missing=13
+				13:[L3_S30_end_date_id_diff<24.5] yes=19,no=20,missing=19
+					19:[L3_S29_D3474<1265.94] yes=25,no=26,missing=25
+						25:leaf=0.0317546
+						26:leaf=0.0917812
+					20:[L0_S7_D137<1272.15] yes=27,no=28,missing=27
+						27:leaf=0.105067
+						28:leaf=0.0147249
+				14:leaf=0.209405
+			10:[L3_S29_F3348<-0.1645] yes=15,no=16,missing=15
+				15:leaf=0.00575212
+				16:[L0_S5_F116<0.087] yes=21,no=22,missing=21
+					21:[L3_S37_start_date_id_diff_reverse<-25783] yes=29,no=30,missing=29
+						29:leaf=-0.00509509
+						30:leaf=-0.0194913
+					22:leaf=-0.000101021
+booster[5]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S42_start_date_rank<33.5] yes=3,no=4,missing=3
+		3:leaf=0.0268932
+		4:[L3_S38_start_date_id_diff_reverse<-34458] yes=7,no=8,missing=7
+			7:leaf=0.00536608
+			8:[L1_S24_start_date_id_diff_reverse<-77143.5] yes=13,no=14,missing=13
+				13:leaf=0.00347023
+				14:[L0_S1_F24<0.066] yes=19,no=20,missing=19
+					19:[L0_S18_start_date_id_diff<-193422] yes=27,no=28,missing=27
+						27:leaf=0.00291031
+						28:leaf=-0.016463
+					20:[L0_S8_start_date_id_diff_reverse<-2] yes=29,no=30,missing=29
+						29:leaf=-0.0126529
+						30:leaf=0.0121392
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S32_F3851<0.5] yes=9,no=10,missing=9
+			9:[L3_S30_start_date_id_diff<369.5] yes=15,no=16,missing=15
+				15:[L3_S38_start_date_id_diff_reverse<-1.5] yes=21,no=22,missing=21
+					21:[L3_S48_time_span_rank<21.5] yes=31,no=32,missing=31
+						31:leaf=0.111355
+						32:leaf=0.0308768
+					22:[L0_S5_start_date_id_diff_magic<1.5] yes=33,no=34,missing=33
+						33:leaf=0.0284896
+						34:leaf=-0.0107904
+				16:[L3_S38_start_date_id_diff_magic<1.5] yes=23,no=24,missing=23
+					23:[L3_S30_F3794<-0.042] yes=35,no=36,missing=35
+						35:leaf=0.156727
+						36:leaf=0.0685326
+					24:[L3_S29_F3407<0.0585] yes=37,no=38,missing=37
+						37:leaf=0.220415
+						38:leaf=0.0605
+			10:leaf=0.272144
+		6:[L3_S29_F3395<-0.1645] yes=11,no=12,missing=11
+			11:leaf=0.00280608
+			12:[L0_S5_F116<0.0855] yes=17,no=18,missing=17
+				17:[L0_S20_start_date_id_diff_reverse<-1890] yes=25,no=26,missing=25
+					25:leaf=-0.00509744
+					26:leaf=-0.0188894
+				18:leaf=0.00485626
+booster[6]:
+0:[L3_S30_end_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0171628
+		4:[L3_S29_F3351<-0.1155] yes=7,no=8,missing=7
+			7:[L0_S4_D106<594.255] yes=13,no=14,missing=13
+				13:[L1_S25_start_date_id_diff_reverse<-4783] yes=21,no=22,missing=21
+					21:leaf=0.00988431
+					22:[L1_S24_D1809<762.665] yes=33,no=34,missing=33
+						33:leaf=-0.014745
+						34:leaf=0.00257509
+				14:[end_date_id_diff<54724] yes=23,no=24,missing=23
+					23:[L3_S29_F3348<0.0785] yes=35,no=36,missing=35
+						35:leaf=-0.0119872
+						36:leaf=0.0196487
+					24:leaf=0.0292293
+			8:[L3_S29_F3321<0.4175] yes=15,no=16,missing=15
+				15:[L2_S26_F3106<0.1035] yes=25,no=26,missing=25
+					25:[L0_S4_start_date_id_diff<120420] yes=37,no=38,missing=37
+						37:leaf=-0.0174687
+						38:leaf=-0.000370322
+					26:leaf=0.000416811
+				16:leaf=0.00120914
+	2:[L3_S30_end_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<9.5] yes=9,no=10,missing=9
+			9:leaf=0.253787
+			10:[L1_S24_F1516<-0.0215] yes=17,no=18,missing=17
+				17:[L0_S11_F322<0.128] yes=27,no=28,missing=27
+					27:[L3_S29_start_date_id_diff<24.5] yes=39,no=40,missing=39
+						39:leaf=0.0460127
+						40:leaf=0.085793
+					28:leaf=-0.00598439
+				18:[L1_S24_F1844<-0.0875] yes=29,no=30,missing=29
+					29:leaf=0.235028
+					30:leaf=0.0491298
+		6:[L0_S5_F116<0.1035] yes=11,no=12,missing=11
+			11:[L3_S36_F3920<0.1095] yes=19,no=20,missing=19
+				19:[L3_S30_F3589<0.125] yes=31,no=32,missing=31
+					31:leaf=-0.0188996
+					32:leaf=-0.00655724
+				20:leaf=-0.000114678
+			12:leaf=0.00991116
+booster[7]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S42_start_date_rank<33.5] yes=3,no=4,missing=3
+		3:leaf=0.0167927
+		4:[L2_S27_F3129<0.0995] yes=7,no=8,missing=7
+			7:[start_date_id_diff<160682] yes=13,no=14,missing=13
+				13:[L3_S38_F3960<0.0115] yes=21,no=22,missing=21
+					21:[end_date<996.385] yes=27,no=28,missing=27
+						27:leaf=-0.0136822
+						28:leaf=-0.0177214
+					22:leaf=0.0094238
+				14:leaf=0.0100009
+			8:leaf=0.0111444
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[L3_S32_F3854<11] yes=9,no=10,missing=9
+			9:[num_null_col_count<758.5] yes=15,no=16,missing=15
+				15:[L1_S24_F1632<-0.082] yes=23,no=24,missing=23
+					23:[L1_S24_F1723<-0.0735] yes=29,no=30,missing=29
+						29:leaf=0.231428
+						30:leaf=0.0477537
+					24:leaf=0.0471421
+				16:[L0_S12_D331<1291.57] yes=25,no=26,missing=25
+					25:[start_date_id_diff<2420] yes=31,no=32,missing=31
+						31:leaf=0.0351383
+						32:leaf=0.0724632
+					26:leaf=0.13054
+			10:leaf=0.201692
+		6:[L3_S29_F3427<-0.0105] yes=11,no=12,missing=11
+			11:[L3_S30_F3704<-0.1245] yes=17,no=18,missing=17
+				17:leaf=0.0113117
+				18:leaf=-0.0169912
+			12:[L3_S29_F3354<-0.206] yes=19,no=20,missing=19
+				19:leaf=-0.000884273
+				20:leaf=-0.019379
+booster[8]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S42_time_span_rank<33.5] yes=3,no=4,missing=3
+		3:leaf=0.0126665
+		4:[L2_S27_F3129<0.0995] yes=7,no=8,missing=7
+			7:[L1_S24_F1516<0.1235] yes=13,no=14,missing=13
+				13:[L0_S16_start_date_id_diff_reverse<189107] yes=19,no=20,missing=19
+					19:[L0_S8_start_date_id_diff_reverse<-92956] yes=27,no=28,missing=27
+						27:leaf=0.00175195
+						28:leaf=-0.0153163
+					20:leaf=0.00991033
+				14:leaf=0.00957965
+			8:leaf=0.00757814
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[L3_S32_F3854<11] yes=9,no=10,missing=9
+			9:[L3_S29_F3342<-0.0045] yes=15,no=16,missing=15
+				15:[L0_S12_D331<1291.57] yes=21,no=22,missing=21
+					21:[L3_S30_F3574<-0.048] yes=29,no=30,missing=29
+						29:leaf=0.0521939
+						30:leaf=0.016409
+					22:leaf=0.0970114
+				16:[L0_S11_F302<0.0505] yes=23,no=24,missing=23
+					23:[L3_S38_start_date_id_diff_magic<1.5] yes=31,no=32,missing=31
+						31:leaf=0.0667261
+						32:leaf=0.118048
+					24:leaf=0.000698643
+			10:leaf=0.167912
+		6:[L3_S29_F3348<-0.1645] yes=11,no=12,missing=11
+			11:leaf=0.00383904
+			12:[L0_S5_F116<0.084] yes=17,no=18,missing=17
+				17:[L0_S20_start_date_id_diff_reverse<-1762.5] yes=25,no=26,missing=25
+					25:leaf=-0.00508399
+					26:leaf=-0.0188283
+				18:leaf=-0.000103408
+booster[9]:
+0:[L3_S30_end_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L0_S8_end_date_id_diff_reverse<-92956] yes=3,no=4,missing=3
+		3:[L3_S36_start_date_id_diff_reverse<-2.5] yes=7,no=8,missing=7
+			7:leaf=-0.0161948
+			8:leaf=0.0253221
+		4:[end_date_id_diff_reverse<-132252] yes=9,no=10,missing=9
+			9:[L0_S1_start_date_id_diff_reverse<-2661] yes=15,no=16,missing=15
+				15:leaf=-0.0164896
+				16:leaf=0.029916
+			10:[L2_S27_F3129<0.1075] yes=17,no=18,missing=17
+				17:[L3_S29_F3467<-0.0115] yes=23,no=24,missing=23
+					23:[L3_S29_D3477<683.76] yes=31,no=32,missing=31
+						31:leaf=-0.0155481
+						32:leaf=-0.00786921
+					24:[L3_S30_F3609<0.2745] yes=33,no=34,missing=33
+						33:leaf=-0.0169142
+						34:leaf=0.00471605
+				18:leaf=0.00949904
+	2:[L3_S30_end_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<9.5] yes=11,no=12,missing=11
+			11:leaf=0.15382
+			12:[null_col_count<937.5] yes=19,no=20,missing=19
+				19:[time_span<43.975] yes=25,no=26,missing=25
+					25:[L3_S36_start_date_id_diff<1.5] yes=35,no=36,missing=35
+						35:leaf=0.0370791
+						36:leaf=0.0929407
+					26:leaf=0.179486
+				20:[L3_S29_F3449<0.1545] yes=27,no=28,missing=27
+					27:[L3_S33_start_date_id_diff<4.5] yes=37,no=38,missing=37
+						37:leaf=0.019404
+						38:leaf=0.0505491
+					28:[L3_S38_start_date_id_diff_magic<1.5] yes=39,no=40,missing=39
+						39:leaf=0.053619
+						40:leaf=0.127597
+		6:[L3_S29_F3395<-0.1645] yes=13,no=14,missing=13
+			13:leaf=0.00808915
+			14:[L3_S30_end_date_id_diff_reverse<24656] yes=21,no=22,missing=21
+				21:leaf=-0.000504578
+				22:[L3_S29_F3354<-0.206] yes=29,no=30,missing=29
+					29:leaf=-0.00664102
+					30:leaf=-0.0194096
+booster[10]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0246429
+		4:[L1_S24_F1758<0.0245] yes=7,no=8,missing=7
+			7:[L0_S4_start_date_id_diff<84099] yes=13,no=14,missing=13
+				13:[start_date<981.155] yes=19,no=20,missing=19
+					19:[L3_S29_D3474<671.14] yes=29,no=30,missing=29
+						29:leaf=-0.0159608
+						30:leaf=-0.0085681
+					20:[L0_S13_F356<0.2025] yes=31,no=32,missing=31
+						31:leaf=-0.0182184
+						32:leaf=-0.00251807
+				14:[L3_S33_F3857<-0.0435] yes=21,no=22,missing=21
+					21:leaf=0.0247349
+					22:leaf=-0.0112676
+			8:leaf=0.0088778
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<9.5] yes=9,no=10,missing=9
+			9:leaf=0.132374
+			10:[L3_S37_end_date_id_diff<369.5] yes=15,no=16,missing=15
+				15:[time_per_TS_cat<2.48] yes=23,no=24,missing=23
+					23:leaf=-0.00880326
+					24:[L3_S38_start_date_id_diff_magic<1.5] yes=33,no=34,missing=33
+						33:leaf=0.0236352
+						34:leaf=0.0626677
+				16:[L0_S11_F322<0.108] yes=25,no=26,missing=25
+					25:[L0_S10_F244<0.0345] yes=35,no=36,missing=35
+						35:leaf=0.075415
+						36:leaf=-0.000847121
+					26:leaf=-0.00312489
+		6:[L3_S30_start_date_id_diff_reverse<16111.5] yes=11,no=12,missing=11
+			11:leaf=0.00966711
+			12:[L2_S27_F3210<-0.066] yes=17,no=18,missing=17
+				17:[L3_S30_F3809<0.0555] yes=27,no=28,missing=27
+					27:leaf=-0.0187112
+					28:leaf=-0.00663718
+				18:leaf=-7.67105e-05
+booster[11]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0149434
+		4:[L1_S24_F1758<0.0245] yes=7,no=8,missing=7
+			7:[L2_S26_F3073<0.273] yes=13,no=14,missing=13
+				13:[L3_S38_start_date_id_diff_reverse<-34458] yes=21,no=22,missing=21
+					21:leaf=0.00788483
+					22:[L0_S4_start_date_id_diff<84088.5] yes=29,no=30,missing=29
+						29:leaf=-0.0150986
+						30:leaf=-0.00227752
+				14:leaf=0.0121677
+			8:leaf=0.00869026
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<12.5] yes=9,no=10,missing=9
+			9:[L3_S34_D3875<234.825] yes=15,no=16,missing=15
+				15:leaf=0.132489
+				16:leaf=0.0506516
+			10:[L1_S24_F1516<-0.0215] yes=17,no=18,missing=17
+				17:[end_date_id_diff<3254] yes=23,no=24,missing=23
+					23:[L0_S1_end_date_rank<3.5] yes=31,no=32,missing=31
+						31:leaf=0.0118286
+						32:leaf=0.0372975
+					24:[L3_S30_F3794<0.0475] yes=33,no=34,missing=33
+						33:leaf=0.0620415
+						34:leaf=0.00779131
+				18:[L1_S24_F1844<-0.228] yes=25,no=26,missing=25
+					25:leaf=0.167894
+					26:[L1_S24_F1816<-0.2445] yes=35,no=36,missing=35
+						35:leaf=0.0595322
+						36:leaf=0.0140947
+		6:[L0_S7_end_date_id_diff_magic<3.5] yes=11,no=12,missing=11
+			11:[L0_S14_start_date_id_diff_reverse<-1.5] yes=19,no=20,missing=19
+				19:leaf=-0.00186424
+				20:[L3_S33_F3855<0.1305] yes=27,no=28,missing=27
+					27:leaf=-0.0193444
+					28:leaf=-0.00556769
+			12:leaf=-0.00128961
+booster[12]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.020363
+		4:[L2_S27_F3129<0.0995] yes=7,no=8,missing=7
+			7:[L2_S26_F3106<0.0295] yes=13,no=14,missing=13
+				13:[L3_S38_end_date_id_diff_reverse<-34349.5] yes=19,no=20,missing=19
+					19:leaf=0.00534959
+					20:[L0_S7_F138<0.4665] yes=29,no=30,missing=29
+						29:leaf=-0.0156769
+						30:leaf=0.00440475
+				14:[L3_S29_start_date_id_diff<1.5] yes=21,no=22,missing=21
+					21:leaf=0.0136169
+					22:[start_date_id_diff<59206.5] yes=31,no=32,missing=31
+						31:leaf=-0.0124582
+						32:leaf=0.0102052
+			8:leaf=0.00762258
+	2:[L3_S30_start_date_id_diff_reverse<222.5] yes=5,no=6,missing=5
+		5:[L3_S32_time_span_rank<9.5] yes=9,no=10,missing=9
+			9:leaf=0.110577
+			10:[L3_S29_F3342<0.1085] yes=15,no=16,missing=15
+				15:[L0_S12_D333<1259.66] yes=23,no=24,missing=23
+					23:[L3_S30_start_date_id_diff<4.5] yes=33,no=34,missing=33
+						33:leaf=0.0124034
+						34:leaf=0.0401511
+					24:[time_per_TS_num<0.149199] yes=35,no=36,missing=35
+						35:leaf=0.0280874
+						36:leaf=0.114648
+				16:[L3_S30_F3759<0.1135] yes=25,no=26,missing=25
+					25:[L0_S10_F219<-0.0075] yes=37,no=38,missing=37
+						37:leaf=0.0863999
+						38:leaf=0.0093428
+					26:leaf=0.00446162
+		6:[L0_S5_F116<0.0855] yes=11,no=12,missing=11
+			11:[L3_S29_F3348<-0.1645] yes=17,no=18,missing=17
+				17:leaf=0.00428119
+				18:[end_date_id_diff_reverse<-28500.5] yes=27,no=28,missing=27
+					27:leaf=-0.00507594
+					28:leaf=-0.0187434
+			12:leaf=0.00981222
+booster[13]:
+0:[L3_S29_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S38_start_date_id_diff_reverse<-34458] yes=3,no=4,missing=3
+		3:leaf=0.00673778
+		4:[L1_S24_F1814<0.0165] yes=7,no=8,missing=7
+			7:[L0_S4_start_date_id_diff<84099] yes=13,no=14,missing=13
+				13:[L2_S26_F3062<0.1105] yes=23,no=24,missing=23
+					23:[L2_S27_F3129<0.1015] yes=33,no=34,missing=33
+						33:leaf=-0.0152262
+						34:leaf=0.00340546
+					24:[L3_S30_F3579<-0.063] yes=35,no=36,missing=35
+						35:leaf=0.0230993
+						36:leaf=-0.0167499
+				14:[L3_S30_F3584<0.0005] yes=25,no=26,missing=25
+					25:leaf=-0.0110642
+					26:leaf=0.0197455
+			8:[L0_S2_start_date_id_diff_magic<2.5] yes=15,no=16,missing=15
+				15:leaf=0.0139242
+				16:leaf=-0.013547
+	2:[L3_S29_start_date_id_diff_reverse<138] yes=5,no=6,missing=5
+		5:[L3_S32_start_date_rank<15] yes=9,no=10,missing=9
+			9:[L3_S34_time_span_rank<6.5] yes=17,no=18,missing=17
+				17:leaf=0.0266179
+				18:leaf=0.108724
+			10:[null_col_count<922] yes=19,no=20,missing=19
+				19:[L3_S38_end_date_id_diff_magic<1.5] yes=27,no=28,missing=27
+					27:[L3_S30_F3819<0.014] yes=37,no=38,missing=37
+						37:leaf=0.0689643
+						38:leaf=0.00760596
+					28:leaf=0.124322
+				20:[start_date_id_diff_magic<2.5] yes=29,no=30,missing=29
+					29:[L0_S1_end_date_id_diff<-50394.5] yes=39,no=40,missing=39
+						39:leaf=0.0695427
+						40:leaf=0.0101538
+					30:[L3_S30_F3684<0.0085] yes=41,no=42,missing=41
+						41:leaf=0.0520186
+						42:leaf=0.00738146
+		6:[L3_S37_start_date_id_diff_reverse<-31284.5] yes=11,no=12,missing=11
+			11:leaf=0.00328115
+			12:[L3_S29_F3348<-0.1645] yes=21,no=22,missing=21
+				21:leaf=-0.00262008
+				22:[L0_S2_F44<0.0515] yes=31,no=32,missing=31
+					31:leaf=-0.0193807
+					32:leaf=-0.00510377
+booster[14]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0226556
+		4:[L2_S26_F3106<0.0295] yes=7,no=8,missing=7
+			7:[L2_S27_F3129<0.0955] yes=13,no=14,missing=13
+				13:[L3_S38_start_date_id_diff_reverse<-34458] yes=23,no=24,missing=23
+					23:leaf=0.00498884
+					24:[L3_S30_F3754<0.1135] yes=39,no=40,missing=39
+						39:leaf=-0.0159878
+						40:leaf=-0.00863434
+				14:[L3_S30_start_date_id_diff_reverse<-3267] yes=25,no=26,missing=25
+					25:leaf=-0.0103188
+					26:leaf=0.0199088
+			8:[L3_S29_F3427<-0.357] yes=15,no=16,missing=15
+				15:leaf=0.0242319
+				16:[L3_S29_start_date_id_diff<688] yes=27,no=28,missing=27
+					27:leaf=0.0145957
+					28:[L3_S33_end_date_id_diff<54468.5] yes=41,no=42,missing=41
+						41:leaf=-0.0150484
+						42:leaf=0.00492161
+	2:[L3_S30_start_date_id_diff_reverse<149.5] yes=5,no=6,missing=5
+		5:[L3_S38_start_date_id_diff_magic<1.5] yes=9,no=10,missing=9
+			9:[L3_S30_start_date_id_diff<408.5] yes=17,no=18,missing=17
+				17:[L3_S30_start_date_id_diff<-28219] yes=29,no=30,missing=29
+					29:leaf=0.0279358
+					30:[L0_S14_time_span_rank<17.5] yes=43,no=44,missing=43
+						43:leaf=0.0110729
+						44:leaf=-0.01159
+				18:[L0_S0_F14<-0.052] yes=31,no=32,missing=31
+					31:[L3_S33_end_date_id_diff<1266] yes=45,no=46,missing=45
+						45:leaf=0.0871382
+						46:leaf=0.0418559
+					32:[L0_S9_F170<-0.0175] yes=47,no=48,missing=47
+						47:leaf=0.00966891
+						48:leaf=0.0480578
+			10:[L3_S33_D3856<99.355] yes=19,no=20,missing=19
+				19:[L3_S33_end_date_id_diff<3.5] yes=33,no=34,missing=33
+					33:[L3_S32_time_span_rank<12.5] yes=49,no=50,missing=49
+						49:leaf=0.0821615
+						50:leaf=0.0191964
+					34:leaf=0.129964
+				20:[L1_S24_F1565<-0.058] yes=35,no=36,missing=35
+					35:[L3_S29_F3370<-0.0885] yes=51,no=52,missing=51
+						51:leaf=0.0017573
+						52:leaf=0.0475868
+					36:leaf=0.115799
+		6:[L3_S29_F3439<-0.2355] yes=11,no=12,missing=11
+			11:leaf=0.0068529
+			12:[time_per_TS<0.0655494] yes=21,no=22,missing=21
+				21:leaf=-8.34031e-05
+				22:[L0_S5_F116<0.061] yes=37,no=38,missing=37
+					37:leaf=-0.01871
+					38:leaf=-0.000185692
+booster[15]:
+0:[L3_S30_start_date_id_diff_reverse<-2.5] yes=1,no=2,missing=1
+	1:[L3_S38_start_date_id_diff_reverse<-34458] yes=3,no=4,missing=3
+		3:leaf=0.0103981
+		4:[L1_S24_F1748<0.0035] yes=7,no=8,missing=7
+			7:[L2_S26_F3073<0.2705] yes=13,no=14,missing=13
+				13:[L3_S29_F3479<-0.065] yes=23,no=24,missing=23
+					23:[L3_S30_F3769<0.0375] yes=27,no=28,missing=27
+						27:leaf=-0.019036
+						28:leaf=-0.00214495
+					24:[L3_S33_F3857<-0.1575] yes=29,no=30,missing=29
+						29:leaf=-0.00145423
+						30:leaf=-0.0137059
+				14:leaf=0.0109685
+			8:[L3_S37_start_date_id_diff_reverse<-3003.5] yes=15,no=16,missing=15
+				15:leaf=-0.0163206
+				16:leaf=0.0285311
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[L3_S32_F3854<11] yes=9,no=10,missing=9
+			9:[start_date_id_diff_reverse<-138.5] yes=17,no=18,missing=17
+				17:leaf=-0.0168079
+				18:[L3_S29_F3412<0.0615] yes=25,no=26,missing=25
+					25:[end_date_id_diff_magic<3.5] yes=31,no=32,missing=31
+						31:leaf=0.0443655
+						32:leaf=0.0879728
+					26:[L3_S29_F3479<0.037] yes=33,no=34,missing=33
+						33:leaf=0.0374667
+						34:leaf=0.001937
+			10:[L0_S1_start_date<941.905] yes=19,no=20,missing=19
+				19:leaf=0.0929024
+				20:leaf=0.0380402
+		6:[L0_S14_end_date_id_diff_reverse<-1.5] yes=11,no=12,missing=11
+			11:leaf=0.000828951
+			12:[L2_S27_end_date_id_diff<1983.5] yes=21,no=22,missing=21
+				21:leaf=-0.0187432
+				22:leaf=-7.32178e-05
+booster[16]:
+0:[L3_S30_start_date_id_diff_reverse<-2.5] yes=1,no=2,missing=1
+	1:[L3_S32_time_span_rank<4.5] yes=3,no=4,missing=3
+		3:leaf=0.0193448
+		4:[L1_S24_F1793<0.0025] yes=7,no=8,missing=7
+			7:[L3_S29_F3461<-0.0115] yes=13,no=14,missing=13
+				13:[L3_S29_D3474<188.065] yes=21,no=22,missing=21
+					21:[L3_S47_F4163<0.1125] yes=31,no=32,missing=31
+						31:leaf=-0.0191885
+						32:leaf=-0.00506824
+					22:[L3_S30_start_date_id_diff_reverse<-1480.5] yes=33,no=34,missing=33
+						33:leaf=-0.00961685
+						34:leaf=0.00741312
+				14:[L0_S10_F224<0.0265] yes=23,no=24,missing=23
+					23:[L0_S9_F200<0.0945] yes=35,no=36,missing=35
+						35:leaf=-0.0173315
+						36:leaf=-0.000848738
+					24:[L3_S30_F3804<0.0165] yes=37,no=38,missing=37
+						37:leaf=-0.0145474
+						38:leaf=0.0140398
+			8:leaf=0.0148992
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[null_col_count<937.5] yes=9,no=10,missing=9
+			9:[time_per_TS_num<6.67643] yes=15,no=16,missing=15
+				15:[L3_S29_F3479<-0.053] yes=25,no=26,missing=25
+					25:leaf=0.121257
+					26:[L3_S33_F3865<-0.197] yes=39,no=40,missing=39
+						39:leaf=0.101103
+						40:leaf=0.0340165
+				16:leaf=0.123008
+			10:[L0_S1_end_date_id_diff_reverse<-1.5] yes=17,no=18,missing=17
+				17:leaf=-0.0167579
+				18:[L3_S33_D3858<202.965] yes=27,no=28,missing=27
+					27:[end_date_id_diff_magic<3.5] yes=41,no=42,missing=41
+						41:leaf=0.0441605
+						42:leaf=0.0969748
+					28:[L0_S11_F322<0.1375] yes=43,no=44,missing=43
+						43:leaf=0.032995
+						44:leaf=-0.0164164
+		6:[L3_S30_start_date_id_diff_reverse<16777] yes=11,no=12,missing=11
+			11:leaf=0.00989518
+			12:[L0_S10_start_date_id_diff<16043] yes=19,no=20,missing=19
+				19:[L0_S17_D432<131.525] yes=29,no=30,missing=29
+					29:leaf=-0.0186707
+					30:leaf=-0.00507047
+				20:leaf=-8.11232e-05
+booster[17]:
+0:[L3_S30_start_date_id_diff_reverse<-1.5] yes=1,no=2,missing=1
+	1:[L3_S42_time_span_rank<33.5] yes=3,no=4,missing=3
+		3:leaf=0.0123485
+		4:[L3_S29_F3351<-0.1155] yes=7,no=8,missing=7
+			7:[L0_S4_D106<670.675] yes=13,no=14,missing=13
+				13:[L1_S24_F1632<-0.0015] yes=23,no=24,missing=23
+					23:[L3_S30_F3809<0.0545] yes=37,no=38,missing=37
+						37:leaf=-0.0152901
+						38:leaf=-0.00256008
+					24:[L1_S24_F1662<-0.0275] yes=39,no=40,missing=39
+						39:leaf=0.0241182
+						40:leaf=-0.0101595
+				14:[L3_S37_start_date_rank<11.5] yes=25,no=26,missing=25
+					25:leaf=0.027473
+					26:[L3_S29_F3357<-0.0335] yes=41,no=42,missing=41
+						41:leaf=-0.0134869
+						42:leaf=0.0106692
+			8:[L3_S29_F3321<0.291] yes=15,no=16,missing=15
+				15:[L3_S30_F3509<0.0035] yes=27,no=28,missing=27
+					27:[L3_S30_F3609<0.2175] yes=43,no=44,missing=43
+						43:leaf=-0.0172521
+						44:leaf=-0.000588683
+					28:[L0_S7_D137<444.76] yes=45,no=46,missing=45
+						45:leaf=-0.0141093
+						46:leaf=0.0172521
+				16:[L3_S33_F3857<-0.0485] yes=29,no=30,missing=29
+					29:leaf=0.0152929
+					30:[L3_S30_F3539<-0.0695] yes=47,no=48,missing=47
+						47:leaf=0.00330519
+						48:leaf=-0.0183913
+	2:[L3_S30_start_date_id_diff_reverse<54] yes=5,no=6,missing=5
+		5:[L3_S32_F3854<11] yes=9,no=10,missing=9
+			9:[L2_S27_F3133<-0.1085] yes=17,no=18,missing=17
+				17:[L3_S29_F3342<0.1545] yes=31,no=32,missing=31
+					31:[L3_S30_F3634<0.0035] yes=49,no=50,missing=49
+						49:leaf=0.0221931
+						50:leaf=0.0460799
+					32:[L3_S33_F3859<0.107] yes=51,no=52,missing=51
+						51:leaf=0.0726268
+						52:leaf=0.0076498
+				18:[L2_S27_F3166<-0.077] yes=33,no=34,missing=33
+					33:leaf=0.118762
+					34:[L3_S30_F3744<0.1325] yes=53,no=54,missing=53
+						53:leaf=0.0511647
+						54:leaf=0.00273427
+			10:[L0_S2_start_date<689.56] yes=19,no=20,missing=19
+				19:leaf=0.0772461
+				20:leaf=0.0263047
+		6:[L0_S5_F116<0.0845] yes=11,no=12,missing=11
+			11:[L3_S29_F3348<-0.1645] yes=21,no=22,missing=21
+				21:leaf=0.00501453
+				22:[L3_S29_F3354<-0.206] yes=35,no=36,missing=35
+					35:leaf=-0.00586078
+					36:leaf=-0.0193381
+			12:leaf=0.00981159

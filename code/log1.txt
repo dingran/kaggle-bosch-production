@@ -1,0 +1,783 @@
+[37m2016-10-31 11:45:45.899225[0m /home/dingran/Dropbox/Kaggle/bosch-production/data_processed does not exist
+[37m2016-10-31 11:45:45.899338[0m redirect to /home/dingran/data_processed
+[33m2016-10-31 11:45:46.609183[0m Input parameters:
+N_files_test                  24                                                                                                                                                                                          
+N_files_train                 24                                                                                                                                                                                          
+N_rounds                      1000                                                                                                                                                                                        
+N_start                       0                                                                                                                                                                                           
+analyze_feature_importance    True                                                                                                                                                                                        
+compile_data                  True                                                                                                                                                                                        
+cv                            True                                                                                                                                                                                        
+disable_id_diff_cols          False                                                                                                                                                                                       
+early_stop_rounds             50                                                                                                                                                                                          
+feature_list_file             None                                                                                                                                                                                        
+make_submission               True                                                                                                                                                                                        
+original_cols_only            False                                                                                                                                                                                       
+run_info_fname                None                                                                                                                                                                                        
+skip_cat_csv                  False                                                                                                                                                                                       
+skip_date_csv                 False                                                                                                                                                                                       
+skip_num_csv                  False                                                                                                                                                                                       
+train_model                   True                                                                                                                                                                                        
+xgb_params                    {u'subsample': 0.7, u'eta': 0.02, u'colsample_bytree': 0.77, u'silent': True, u'seed': 1019, u'objective': u'binary:logistic', u'base_score': 0.05, u'max_depth': 6, u'min_child_weight': 3}
+dtype: object
+[37m2016-10-31 11:45:46.611646[0m load train files
+N_start: 0 
+N_read: 24
+N_splits: 24
+shuffle: False
+original_cols_only: False
+feature_list_file: None
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] ['train_date.csv', 'train_numeric.csv', 'train_categorical.csv']
+[37m2016-10-31 11:45:46.611727[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part0.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:46:01.467292[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part0.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:46:09.554917[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part0.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 11:47:23.889006[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part1.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:47:39.664559[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part1.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:47:48.767187[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part1.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 11:49:58.509876[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part2.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:50:11.160896[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part2.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:50:18.642317[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part2.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 11:52:23.065398[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part3.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:52:35.065672[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part3.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:52:42.888149[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part3.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 11:55:22.242461[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part4.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:55:37.666462[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part4.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:55:46.145361[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part4.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 11:59:23.240414[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part5.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 11:59:35.579763[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part5.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 11:59:43.494791[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part5.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:03:33.536414[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part6.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:03:46.294563[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part6.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:03:54.513312[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part6.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:09:05.009832[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part7.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:09:18.976825[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part7.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:09:27.181384[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part7.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:16:41.335587[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part8.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:16:54.328585[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part8.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:17:02.771711[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part8.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:23:24.711061[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part9.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:23:40.828138[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part9.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:23:50.413523[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part9.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:32:21.611226[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part10.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:32:34.841905[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part10.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:32:43.519786[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part10.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:42:25.246164[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part11.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:42:38.427565[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part11.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:42:47.331413[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part11.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 12:53:44.700124[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part12.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 12:53:58.152803[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part12.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 12:54:07.325188[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part12.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 13:05:37.333474[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part13.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 13:05:50.857654[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part13.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 13:05:59.805467[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part13.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 13:16:16.046813[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part14.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 13:16:29.652096[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part14.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 13:16:38.780491[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part14.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 13:29:45.164899[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part15.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 13:29:59.110120[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part15.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 13:30:08.709637[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part15.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 13:44:03.633709[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part16.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 13:44:17.411516[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part16.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 13:44:26.833341[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part16.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 13:56:49.576436[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part17.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 13:57:03.474272[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part17.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 13:57:13.139862[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part17.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 14:12:02.571085[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part18.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 14:12:16.813971[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part18.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 14:12:26.671499[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part18.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 14:29:57.852706[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part19.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 14:30:12.200796[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part19.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 14:30:22.430452[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part19.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 14:47:00.403863[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part20.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 14:47:15.007489[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part20.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 14:47:25.395618[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part20.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 15:02:09.391395[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part21.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 15:02:23.947389[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part21.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 15:02:34.441105[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part21.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 15:23:36.664776[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part22.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 15:23:51.389876[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part22.csv
+df_tmp shape: (50000, 970)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1022)
+df_chunk shape (merged): (50000, 2547)
+[37m2016-10-31 15:24:02.312056[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part22.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4723)
+[37m2016-10-31 15:46:34.226485[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_date_part23.csv
+df_tmp shape: (33747, 1157)
+df_tmp_add shape (merged): (33747, 370)
+df_tmp shape (merged): (33747, 1526)
+df_chunk shape (merged): (33747, 1526)
+[37m2016-10-31 15:46:44.868909[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_numeric_part23.csv
+df_tmp shape: (33747, 970)
+df_tmp_add shape (merged): (33747, 53)
+df_tmp shape (merged): (33747, 1022)
+df_chunk shape (merged): (33747, 2547)
+[37m2016-10-31 15:46:53.611944[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/train_categorical_part23.csv
+df_tmp shape: (33747, 2141)
+df_tmp_add shape (merged): (33747, 37)
+df_tmp shape (merged): (33747, 2177)
+df_chunk shape (merged): (33747, 4723)
+df_output shape: (1183747, 4726)
+[37m2016-10-31 16:09:34.927026[0m load test files
+N_start: 0 
+N_read: 24
+N_splits: 24
+shuffle: False
+original_cols_only: False
+feature_list_file: None
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] ['test_date.csv', 'test_numeric.csv', 'test_categorical.csv']
+[37m2016-10-31 16:09:34.927222[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part0.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:09:48.892116[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part0.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:09:59.546144[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part0.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:11:21.151542[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part1.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:11:35.053396[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part1.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:11:45.522582[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part1.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:14:13.871886[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part2.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:14:28.634664[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part2.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:14:39.519643[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part2.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:17:38.890997[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part3.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:17:53.664146[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part3.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:18:04.659990[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part3.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:21:58.159218[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part4.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:22:13.866969[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part4.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:22:25.407112[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part4.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:26:56.900517[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part5.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:27:13.679275[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part5.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:27:24.809486[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part5.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:32:19.185299[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part6.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:32:34.489367[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part6.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:32:46.615548[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part6.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:40:45.260260[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part7.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:41:04.531942[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part7.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:41:17.164591[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part7.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:49:23.442265[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part8.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:49:42.126359[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part8.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:49:55.029806[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part8.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 16:56:34.549032[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part9.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 16:56:53.124139[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part9.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 16:57:06.347163[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part9.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 17:07:51.626870[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part10.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 17:08:07.725561[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part10.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 17:08:20.136219[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part10.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 17:19:53.490481[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part11.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 17:20:09.717718[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part11.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 17:20:22.430708[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part11.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 17:30:42.700925[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part12.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 17:30:59.173562[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part12.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 17:31:11.905051[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part12.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 17:40:31.856719[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part13.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 17:40:48.280690[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part13.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 17:41:01.461646[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part13.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 17:52:57.475913[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part14.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 17:53:13.749644[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part14.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 17:53:26.905206[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part14.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 18:12:19.467467[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part15.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 18:12:36.012107[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part15.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 18:12:49.601279[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part15.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 18:27:29.730798[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part16.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 18:27:45.777066[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part16.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 18:27:58.711433[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part16.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 18:49:12.456483[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part17.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 18:49:27.805996[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part17.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 18:49:41.139387[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part17.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 19:03:21.255963[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part18.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 19:03:37.229615[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part18.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 19:03:51.088189[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part18.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 19:24:49.805878[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part19.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 19:25:06.956646[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part19.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 19:25:21.319825[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part19.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 19:46:39.334464[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part20.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 19:46:56.728380[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part20.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 19:47:11.409243[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part20.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 20:11:32.672200[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part21.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 20:11:50.553858[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part21.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 20:12:04.638332[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part21.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 20:31:52.740250[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part22.csv
+df_tmp shape: (50000, 1157)
+df_tmp_add shape (merged): (50000, 370)
+df_tmp shape (merged): (50000, 1526)
+df_chunk shape (merged): (50000, 1526)
+[37m2016-10-31 20:32:09.222511[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part22.csv
+df_tmp shape: (50000, 969)
+df_tmp_add shape (merged): (50000, 53)
+df_tmp shape (merged): (50000, 1021)
+df_chunk shape (merged): (50000, 2546)
+[37m2016-10-31 20:32:23.438940[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part22.csv
+df_tmp shape: (50000, 2141)
+df_tmp_add shape (merged): (50000, 37)
+df_tmp shape (merged): (50000, 2177)
+df_chunk shape (merged): (50000, 4722)
+[37m2016-10-31 20:51:52.850484[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_date_part23.csv
+df_tmp shape: (33748, 1157)
+df_tmp_add shape (merged): (33748, 370)
+df_tmp shape (merged): (33748, 1526)
+df_chunk shape (merged): (33748, 1526)
+[37m2016-10-31 20:52:06.942097[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_numeric_part23.csv
+df_tmp shape: (33748, 969)
+df_tmp_add shape (merged): (33748, 53)
+df_tmp shape (merged): (33748, 1021)
+df_chunk shape (merged): (33748, 2546)
+[37m2016-10-31 20:52:18.771499[0m reading /home/dingran/Dropbox/Kaggle/bosch-production/data/test_categorical_part23.csv
+df_tmp shape: (33748, 2141)
+df_tmp_add shape (merged): (33748, 37)
+df_tmp shape (merged): (33748, 2177)
+df_chunk shape (merged): (33748, 4722)
+df_output shape: (1183748, 4725)
+[37m2016-10-31 21:14:41.262643[0m generating id diff columns based on various dates columns: diff_period = 1
+Traceback (most recent call last):
+  File "main_bosch.py", line 1029, in <module>
+    run_info_fname = main(**par_dict)
+  File "main_bosch.py", line 485, in main
+    df_test['Response'] = 0
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/frame.py", line 2417, in __setitem__
+    self._set_item(key, value)
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/frame.py", line 2484, in _set_item
+    NDFrame._set_item(self, key, value)
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/generic.py", line 1500, in _set_item
+    self._data.set(key, value)
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/internals.py", line 3648, in set
+    self.insert(len(self.items), item, value)
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/internals.py", line 3776, in insert
+    self._consolidate_inplace()
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/internals.py", line 3508, in _consolidate_inplace
+    self.blocks = tuple(_consolidate(self.blocks))
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/internals.py", line 4500, in _consolidate
+    _can_consolidate=_can_consolidate)
+  File "/home/dingran/anaconda2/lib/python2.7/site-packages/pandas/core/internals.py", line 4523, in _merge_blocks
+    new_values = new_values[argsort]
+MemoryError

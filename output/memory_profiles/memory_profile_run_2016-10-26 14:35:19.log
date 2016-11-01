@@ -1,0 +1,403 @@
+Filename: main_bosch.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+   288    120.7 MiB      0.0 MiB   @profile(stream=f_mem)
+   289                             def main(run_info_fname=None,
+   290                                      compile_data=False,
+   291                                      train_model=False,
+   292                                      make_submission=False,
+   293                                      N_start=None,
+   294                                      N_files_train=1,
+   295                                      N_files_test=1,
+   296                                      feature_down_select=False,
+   297                                      N_features=250,
+   298                                      analyze_feature_importance=False,
+   299                                      cv=False,
+   300                                      # if True running cross validation if False, run single model training session and importance analysis
+   301                                      early_stop_rounds=10,
+   302                                      testsize=0.1
+   303                                      ):
+   304    120.7 MiB      0.0 MiB       datetime_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+   305                             
+   306    120.7 MiB      0.0 MiB       if compile_data:
+   307                                     run_info = dict()
+   308                                     N_splits = ub.N_split
+   309                                     if N_files_train > N_splits:
+   310                                         N_files_train = N_splits
+   311                                     if N_files_test > N_splits:
+   312                                         N_files_test = N_splits
+   313                             
+   314                                     if analyze_feature_importance and feature_down_select:
+   315                                         assert 0
+   316                             
+   317                                     run_info['N_splits'] = N_splits
+   318                                     run_info['N_files_train'] = N_files_train
+   319                                     run_info['N_files_test'] = N_files_test
+   320                                     run_info['feature_down_select'] = feature_down_select
+   321                                     run_info['cv'] = cv
+   322                                     run_info['analyze_feature_importance'] = analyze_feature_importance
+   323                                     run_info['early_stop_rounds'] = early_stop_rounds
+   324                             
+   325                                     df_train, n_start = load_data(load_test=False, N_start=N_start, N_read=N_files_train, N_split=N_splits,
+   326                                                                   shuffle=False,
+   327                                                                   feature_down_select=feature_down_select, N_features=N_features)
+   328                                     df_test, _ = load_data(load_test=True, N_start=n_start, N_read=N_files_test, N_split=N_splits, shuffle=False,
+   329                                                            feature_down_select=feature_down_select, N_features=N_features)
+   330                             
+   331                                     ub.log('generating id diff columns based on various dates columns')
+   332                                     dates_cols = [x for x in list(df_train.columns) if 'start_date' in x or 'end_date' in x]
+   333                             
+   334                                     # print dates_cols
+   335                             
+   336                                     df_datesort = pd.concat([df_train[['Id'] + dates_cols], df_test[['Id'] + dates_cols]],
+   337                                                             ignore_index=True)
+   338                                     gc.collect()
+   339                             
+   340                                     for c in dates_cols:
+   341                                         df_datesort.sort_values(by=[c, 'Id'], inplace=True)
+   342                                         df_datesort[c + '_id_diff'] = df_datesort['Id'].diff().fillna(999999).astype(int)
+   343                                         df_datesort[c + '_id_diff_reverse'] = df_datesort['Id'].iloc[::-1].diff().fillna(999999).astype(int)
+   344                             
+   345                                         df_datesort.drop([c], axis=1, inplace=True)
+   346                             
+   347                                     df_datesort.head(n=1000).to_csv(os.path.join(ub.data_dir, 'df_datesort_debug.csv'))
+   348                             
+   349                                     gc.collect()
+   350                                     df_train = df_train.merge(df_datesort, on='Id')
+   351                                     df_train.head(n=1000).to_csv(os.path.join(ub.data_dir, 'df_train_debug.csv'))
+   352                             
+   353                                     gc.collect()
+   354                                     df_test = df_test.merge(df_datesort, on='Id')
+   355                                     df_test.head(n=1000).to_csv(os.path.join(ub.data_dir, 'df_test_debug.csv'))
+   356                             
+   357                                     df_test['Response'] = 0
+   358                             
+   359                                     print df_train.shape
+   360                                     print df_test.shape
+   361                                     gc.collect()
+   362                             
+   363                                     # if N_files_train == N_splits:
+   364                                     #     split_data(df_train,
+   365                                     #                output_fname_template=os.path.join(ub.processed_data_dir, 'df_train_preprocessed_part{}.csv'))
+   366                                     # if N_files_test == N_splits:
+   367                                     #     split_data(df_test,
+   368                                     #                output_fname_template=os.path.join(ub.processed_data_dir, 'df_test_preprocessed_part{}.csv'))
+   369                             
+   370                                     fillna = True
+   371                                     run_info['fillna'] = fillna
+   372                                     if fillna:
+   373                                         ub.log('Filling na...')
+   374                                         for df in [df_train, df_test]:
+   375                                             cols_full_flag = df.isnull().any()
+   376                                             non_full_cols = list(cols_full_flag[cols_full_flag].index)
+   377                                             print 'Non-full columns: {}'.format(len(non_full_cols))
+   378                                             # print non_full_cols
+   379                             
+   380                                             if 1:
+   381                                                 df.fillna(-999999, inplace=True)
+   382                                             else:
+   383                                                 # print df.PersonalField7.unique()
+   384                                                 for c in non_full_cols:
+   385                                                     if len(df[c].unique()) > 2:
+   386                                                         most_frequent_items = df[c].value_counts().idxmax()
+   387                                                         print c, most_frequent_items
+   388                                                         df[c].fillna(value=most_frequent_items, inplace=True)
+   389                                                     else:  # if it is only a pair of value [somthing, nan] then fill in "missing"
+   390                                                         df[c].fillna(value='missing', inplace=True)
+   391                                                         print c, df[c].unique()
+   392                             
+   393                                             cols_full_flag = df.isnull().any()
+   394                                             non_full_cols = list(cols_full_flag[cols_full_flag].index)
+   395                                             print 'Non-full columns: {}'.format(len(non_full_cols))
+   396                             
+   397                                             le = LabelEncoder()
+   398                                             obj_cols = df.select_dtypes(include=['object']).columns
+   399                                             # print 'Obj columns: ', list(obj_cols)
+   400                                             for col in obj_cols:
+   401                                                 df[col] = le.fit_transform(df[col])
+   402                             
+   403                                         df_train.head(n=1000).to_csv(os.path.join(ub.data_dir, 'df_train_cleanup_debug.csv'))
+   404                                         df_test.head(n=1000).to_csv(os.path.join(ub.data_dir, 'df_train_cleanup_debug.csv'))
+   405                             
+   406                                     ub.log('Dropping Id and Response columns...')
+   407                                     columns_to_drop = ['Id', 'Response']
+   408                                     shuffle_col = df_train[['Id']].copy()
+   409                                     shuffle_col['Id'] = np.random.randn(len(shuffle_col))
+   410                             
+   411                                     y_total_df = df_train['Response']
+   412                                     y_total = df_train['Response'].values
+   413                                     df_train.drop(columns_to_drop, axis=1, inplace=True)
+   414                                     df_test.drop(columns_to_drop, axis=1, inplace=True)
+   415                             
+   416                                     print df_train.shape
+   417                                     print df_test.shape
+   418                                     prior = np.sum(y_total) / (1. * len(y_total))
+   419                                     print 'prior: {}'.format(prior)
+   420                                     run_info['prior'] = prior
+   421                                     gc.collect()
+   422                             
+   423                                     feature_imp_fname_template = os.path.join(ub.output_dir, 'feature_importance_xgb_{}')
+   424                                     run_info['feature_imp_fname_template'] = feature_imp_fname_template
+   425                                     top_features_fname = feature_imp_fname_template.format('accumu_list.txt')
+   426                                     run_info['top_features_fname'] = top_features_fname
+   427                             
+   428                                     # if feature_down_select:
+   429                                     #     ub.log('Feature down selected based on {}...'.format(top_features_fname))
+   430                                     #     #todo may need to set a maxN for the number of features to use
+   431                                     #
+   432                                     #     with open(top_features_fname, 'r') as tf:
+   433                                     #         selected_cols = [x.strip() for x in tf.readlines()]
+   434                                     #     df_train = df_train[selected_cols]
+   435                                     #     df_test = df_test[selected_cols]
+   436                                     #     print df_train.shape
+   437                                     #     print df_test.shape
+   438                                     #     print df_train.columns
+   439                             
+   440                                     feature_names = list(df_train.columns)
+   441                             
+   442                                     postfix_train = '{}_{}of{}'.format(datetime_str, N_files_train, N_splits)
+   443                                     postfix_test = '{}_{}of{}'.format(datetime_str, N_files_test, N_splits)
+   444                             
+   445                                     run_info['postfix_train'] = postfix_train
+   446                                     run_info['postfix_test'] = postfix_test
+   447                             
+   448                                     run_info['testsize'] = testsize
+   449                             
+   450                                     train_test_split_method = 1
+   451                             
+   452                                     ub.log('Train/val split using testsize={}, split_method={}'.format(testsize, train_test_split_method))
+   453                                     if train_test_split_method == 1:
+   454                                         train_idx = shuffle_col[shuffle_col['Id'] > testsize].index
+   455                                         val_idx = shuffle_col[shuffle_col['Id'] <= testsize].index
+   456                                         ub.log('Done shuffling...')
+   457                                         print 'len of train_idx', len(train_idx)
+   458                                         print 'len of val_idx', len(val_idx)
+   459                                         y_train = y_total_df.loc[train_idx].values
+   460                                         y_val = y_total_df.loc[val_idx].values
+   461                             
+   462                                         xgtrain = xgb.DMatrix(df_train.loc[train_idx].values, y_train, feature_names=feature_names)
+   463                                         ub.log('Assembled xgtrain')
+   464                                         xgval = xgb.DMatrix(df_train.loc[val_idx].values, y_val, feature_names=feature_names)
+   465                                         ub.log('Assembled xgval')
+   466                                         del df_train
+   467                                         ub.log('Deleted df_train')
+   468                                         gc.collect()
+   469                                     else:
+   470                                         x_train, x_val, y_train, y_val = train_test_split(df_train.values, y_total, test_size=testsize)
+   471                                         ub.log('Done shuffling...')
+   472                                         print x_train.shape
+   473                                         print x_val.shape
+   474                                         del df_train
+   475                                         gc.collect()
+   476                                         ub.log('Deleted df_train')
+   477                             
+   478                                         xgtrain = xgb.DMatrix(x_train, y_train, feature_names=feature_names)
+   479                                         ub.log('Assembled xgtrain')
+   480                                         xgval = xgb.DMatrix(x_val, y_val, feature_names=feature_names)
+   481                                         ub.log('Assembled xgval')
+   482                                         del x_train
+   483                                         del x_val
+   484                                         gc.collect()
+   485                             
+   486                                     fname_xgtrain = os.path.join(ub.processed_data_dir, 'xgtrain_{}.buffer'.format(postfix_train))
+   487                                     xgtrain.save_binary(fname_xgtrain)
+   488                                     ub.log('Saved {}'.format(fname_xgtrain))
+   489                             
+   490                                     fname_xgval = os.path.join(ub.processed_data_dir, 'xgval_{}.buffer'.format(postfix_train))
+   491                                     xgval.save_binary(fname_xgval)
+   492                                     ub.log('Saved {}'.format(fname_xgval))
+   493                             
+   494                                     xgtest = xgb.DMatrix(df_test.values, feature_names=feature_names)
+   495                                     ub.log('Assembled xgtest')
+   496                                     fname_xgtest = os.path.join(ub.processed_data_dir, 'xgtest_{}.buffer'.format(postfix_test))
+   497                                     xgtest.save_binary(fname_xgtest)
+   498                                     ub.log('Saved {}'.format(fname_xgtest))
+   499                             
+   500                                     del df_test
+   501                                     gc.collect()
+   502                                     ub.log('Deleted df_test')
+   503                             
+   504                                     print 'train and val set sizes'
+   505                                     print xgtrain.num_row(), xgtrain.num_col()
+   506                                     print xgval.num_row(), xgval.num_col()
+   507                             
+   508                                     run_info['fname_xgtrain'] = fname_xgtrain
+   509                                     run_info['fname_xgval'] = fname_xgval
+   510                                     run_info['fname_xgtest'] = fname_xgtest
+   511                             
+   512    120.7 MiB      0.0 MiB       if train_model:
+   513                                     assert compile_data or (run_info_fname is not None)
+   514                             
+   515                                     if not compile_data:
+   516                                         ub.log('(train_model) Loading run info from {} ...'.format(run_info_fname))
+   517                                         with open(run_info_fname, 'r') as fp:
+   518                                             run_info = eval(fp.read())
+   519                                         print json.dumps(run_info, indent=2)
+   520                             
+   521                                         ub.log('Loading xgtrain & xgval data {} ...'.format(run_info['fname_xgtrain']))
+   522                                         xgtrain = xgb.DMatrix(run_info['fname_xgtrain'])
+   523                                         xgval = xgb.DMatrix(run_info['fname_xgval'])
+   524                             
+   525                                     prior = run_info['prior']
+   526                                     feature_imp_fname_template = run_info['feature_imp_fname_template']
+   527                                     top_features_fname = run_info['top_features_fname']
+   528                                     postfix_train = run_info['postfix_train']
+   529                             
+   530                                     xgb_params = get_params(basescore=prior)
+   531                                     run_info['xgb_params'] = xgb_params
+   532                                     ub.log('Get xgb_params')
+   533                                     print xgb_params
+   534                             
+   535                                     xgb_num_rounds = 2000
+   536                                     run_info['xgb_num_rounds'] = xgb_num_rounds
+   537                                     print 'xgb_num_rounds', xgb_num_rounds
+   538                                     if cv:
+   539                                         ub.log('Running cross validation...')
+   540                                         eval_hist = xgb.cv(xgb_params, xgtrain, num_boost_round=xgb_num_rounds,
+   541                                                            early_stopping_rounds=early_stop_rounds,
+   542                                                            feval=ub.mcc_eval, maximize=True,
+   543                                                            verbose_eval=1, show_stdv=True, nfold=4, seed=0, stratified=True)
+   544                                         print eval_hist
+   545                                         run_info['eval_hist'] = eval_hist
+   546                             
+   547                                     else:
+   548                                         ub.log('Running training...')
+   549                                         feature_imp_fname = feature_imp_fname_template.format(postfix_train)
+   550                                         watchlist = [(xgtrain, 'train'), (xgval, 'eval')]
+   551                                         model = xgb.train(xgb_params, xgtrain, num_boost_round=xgb_num_rounds,
+   552                                                           early_stopping_rounds=early_stop_rounds,
+   553                                                           feval=ub.mcc_eval, maximize=True,
+   554                                                           evals=watchlist, verbose_eval=True)
+   555                             
+   556                                         model_fname = os.path.join(ub.output_dir, 'xbg_{}.model'.format(postfix_train))
+   557                                         ub.log('Saving model: {}...'.format(model_fname))
+   558                                         model.save_model(model_fname)
+   559                                         model.dump_model(model_fname + '.raw.txt')
+   560                                         run_info['model_fname'] = model_fname
+   561                             
+   562                                         ntree_limit = model.best_iteration + 1
+   563                             
+   564                                         ub.log('Predictions on xgtrain...', 'highlight')
+   565                                         predictions = model.predict(xgtrain, ntree_limit=ntree_limit)
+   566                             
+   567                                         best_proba, best_mcc, y_pred = ub.eval_mcc(y_train, predictions, True)
+   568                                         mcc_official = matthews_corrcoef(y_train, y_pred)
+   569                                         print 'ntree limit:', ntree_limit
+   570                                         print 'best_mcc:', best_mcc
+   571                                         print 'best_proba:', best_proba
+   572                                         print 'matthews_corroef', mcc_official
+   573                             
+   574                                         run_info['ntree_limit_train'] = ntree_limit
+   575                                         run_info['best_mcc_train'] = best_mcc
+   576                                         run_info['best_proba_train'] = best_proba
+   577                                         run_info['mcc_official_train'] = mcc_official
+   578                             
+   579                                         ub.log('Predictions on xgval...', 'highlight')
+   580                                         predictions = model.predict(xgval, ntree_limit=ntree_limit)
+   581                             
+   582                                         best_proba, best_mcc, y_pred = ub.eval_mcc(y_val, predictions, True)
+   583                                         mcc_official = matthews_corrcoef(y_val, y_pred)
+   584                                         print 'ntree limit:', ntree_limit
+   585                                         print 'best_mcc:', best_mcc
+   586                                         print 'best_proba:', best_proba
+   587                                         print 'matthews_corroef', mcc_official
+   588                             
+   589                                         run_info['ntree_limit_val'] = ntree_limit
+   590                                         run_info['best_mcc_val'] = best_mcc
+   591                                         run_info['best_proba_val'] = best_proba
+   592                                         run_info['mcc_official_val'] = mcc_official
+   593                             
+   594                                         if analyze_feature_importance:
+   595                                             ub.log('Analyzing feature importance...')
+   596                                             imp = model.get_fscore()
+   597                                             imp = sorted(imp.items(), key=operator.itemgetter(1))
+   598                                             imp_df = pd.DataFrame(imp, columns=['feature', 'fscore'])
+   599                                             imp_df['fscore'] = imp_df['fscore'] / imp_df['fscore'].sum()
+   600                             
+   601                                             ub.log('Output result csv to {}...'.format(feature_imp_fname + '.csv'))
+   602                                             imp_df.to_csv(feature_imp_fname + '.csv')
+   603                             
+   604                                             plt.figure()
+   605                                             imp_df.plot(kind='barh', x='feature', y='fscore', legend=False, figsize=(6, 10))
+   606                                             plt.title('XGBoost Feature Importance @ {}'.format(postfix_train))
+   607                                             plt.xlabel('relative importance')
+   608                                             plt.gcf().savefig(feature_imp_fname + '.png', bbox_inches='tight')
+   609                             
+   610                                             feature_lists = glob.glob(feature_imp_fname_template.replace('{}', '*.csv'))
+   611                                             ub.log('Aggregating previous analysis results...')
+   612                                             print feature_lists
+   613                                             features_df = None
+   614                                             if feature_lists:
+   615                                                 for f_l in feature_lists:
+   616                                                     tmp_df = pd.read_csv(f_l, index_col=0)
+   617                                                     if features_df is None:
+   618                                                         features_df = tmp_df
+   619                                                     else:
+   620                                                         features_df = pd.concat([features_df, tmp_df], ignore_index=True)
+   621                             
+   622                                             f_df = features_df.groupby(['feature']).mean().reset_index()
+   623                                             f_df['overall'] = True
+   624                                             imp_df['overall'] = False
+   625                                             merged_df = pd.concat([imp_df, f_df]).sort_values(by=['overall', 'fscore'], ascending=False)
+   626                                             sns_plot = sns.factorplot(y='feature', x='fscore', data=merged_df, hue='overall', kind='bar',
+   627                                                                       hue_order=[True, False], size=20, aspect=0.5)
+   628                                             sns_plot.savefig(feature_imp_fname + '_overall.png', bbox_inches='tight')
+   629                             
+   630                                             ub.log('Output overall result csv to {}...'.format(top_features_fname))
+   631                                             with open(top_features_fname, 'w') as tf:
+   632                                                 tf.write('\n'.join(list(set(merged_df.feature.values))))
+   633                             
+   634                                             merged_df.to_csv(top_features_fname.replace('.txt', '_df.csv'), index=False)
+   635                             
+   636                             
+   637                                             # json has trouble serializing np.float32
+   638                                             # with open(run_info_fname, 'w') as fp:
+   639                                             #    json.dump(run_info, fp)
+   640                             
+   641    120.7 MiB      0.0 MiB       if make_submission:
+   642                                     assert train_model or (run_info_fname is not None)
+   643                             
+   644                                     if not train_model:
+   645                                         ub.log('(make_submission) Loading run info from {} ...'.format(run_info_fname))
+   646                                         with open(run_info_fname, 'r') as fp:
+   647                                             run_info = eval(fp.read())
+   648                                         print json.dumps(run_info, indent=2)
+   649                             
+   650                                         model = xgb.Booster()
+   651                                         ub.log('Loading model {} ...'.format(run_info['model_fname']))
+   652                                         model.load_model(run_info['model_fname'])
+   653                                         ub.log('Loading xgtest data {} ...'.format(run_info['fname_xgtest']))
+   654                                         xgtest = xgb.DMatrix(run_info['fname_xgtest'])
+   655                                         ub.log('XGB making predictions...')
+   656                             
+   657                                     postfix_train = run_info['postfix_train']
+   658                             
+   659                                     ypred = model.predict(xgtest, ntree_limit=run_info['ntree_limit'])
+   660                                     nrows = len(ypred)
+   661                             
+   662                                     sample = pd.read_csv(os.path.join(ub.data_dir, 'sample_submission.csv'), nrows=nrows)
+   663                                     sample['Response'] = ypred
+   664                                     fname_output = os.path.join(ub.output_dir, "sub_xgboost_{}_prob.csv".format(postfix_train))
+   665                                     ub.log('Writing output file (raw proba) {} ...'.format(fname_output))
+   666                                     sample.to_csv(fname_output, index=False)
+   667                             
+   668                                     best_proba = run_info['best_proba']
+   669                                     ub.log('Using threshold: best_proba == {}'.format(best_proba))
+   670                                     sample['Response'] = (ypred > best_proba).astype(int)
+   671                                     fname_output = os.path.join(ub.output_dir, "sub_xgboost_{}.csv".format(postfix_train))
+   672                                     ub.log('Writing output file {} ...'.format(fname_output))
+   673                                     sample.to_csv(fname_output, index=False)
+   674                             
+   675    120.7 MiB      0.0 MiB       if compile_data or train_model:
+   676                                     if compile_data:
+   677                                         run_info_fname = os.path.join(ub.output_dir, 'run_info_{}.txt'.format(postfix_train))
+   678                                     # else run_info_fname is an input parameter
+   679                                     ub.log('Saving run_info into {}'.format(run_info_fname))
+   680                                     print run_info
+   681                                     with open(run_info_fname, 'w') as fp:
+   682                                         fp.write(str(run_info))
+   683                             
+   684    120.7 MiB      0.0 MiB       return run_info_fname
+
+
