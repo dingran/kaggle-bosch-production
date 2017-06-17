@@ -10,7 +10,8 @@ import datetime
 do_plot = False
 
 datetime_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-feature_imp_fname_template = os.path.join(ub.output_dir, 'feature_importance_xgb_{}')
+# feature_imp_fname_template = os.path.join(ub.output_dir, 'feature_importance_xgb_{}')
+feature_imp_fname_template = os.path.join(ub.code_dir, 'feature_importance_xgb_{}')
 
 feature_lists = glob.glob(feature_imp_fname_template.replace('{}', '*.csv'))
 ub.log('Aggregating previous analysis results...')
@@ -24,12 +25,12 @@ if feature_lists:
             continue
         tmp_df = pd.read_csv(f_l, index_col=0)
         results = find_info.search(f_l)
-        datetime_info = results.group(1)
-        n_datasets = results.group(2)
+        # datetime_info = results.group(1)
+        # n_datasets = results.group(2)
         fname = os.path.basename(f_l)
-        id_info = '{}_{}sets'.format(datetime_info, n_datasets)
+        # id_info = '{}_{}sets'.format(datetime_info, n_datasets)
         # tmp_df = tmp_df.rename(columns={'fscore': })
-        tmp_df['id_info'] = id_info
+        # tmp_df['id_info'] = id_info
 
         if features_df is None:
             features_df = tmp_df

@@ -55,8 +55,8 @@ possible_home_dirs = ['/Users/ran/', '/home/dingran/', '/storage/dingran/']
 home_dir = '/Users/ran/'
 if platform.system() == 'Linux':
     home_dir = '/home/dingran/'
-    if os.path.exists('/storage/'):
-        home_dir = '/storage/dingran/'
+    # if os.path.exists('/storage/'):
+    #     home_dir = '/storage/dingran/'
 
 project_dir = os.path.join(home_dir, 'Dropbox/Kaggle/bosch-production/')
 data_dir = os.path.join(project_dir, 'data')

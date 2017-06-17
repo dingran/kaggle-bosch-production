@@ -406,7 +406,7 @@ def main(run_info_fname=None,
          # if True running cross validation if False, run single model training session and importance analysis
          early_stop_rounds=10,
          N_rounds=1000,
-         testsize=0.1,
+         testsize=0.3,
          xgb_params=None,
 
          skip_date_csv=False,
